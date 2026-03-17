@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTgzZGc0czVnY3ByZWZkZnlkaGlqeGJiaWU2cTZxOWNzdzgybGl0byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LPWgnWIytRmDH4OvTl/giphy.gif" width="50%" alt="Seismic Desing Banner">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTgzZGc0czVnY3ByZWZkZnlkaGlqeGJiaWU2cTZxOWNzdzgybGl0byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LPWgnWIytRmDH4OvTl/giphy.gif" width="50%" alt="Computational Methods Banner">
 </p>
 
-# Seismic-Resistant Design
+# Computational Methods
 
-### Educational Repository for Seismic Design and Structural Engineering
+### Educational Repository for Computational Methods and Structural Engineering Applications
 
 **Author:** Msc. Ing. Carlos Andrés Celi Sánchez  
 **Semester:** FEB – 2026
 
-This repository has been created to support the teaching process of the **Seismic-Resistant Design** course during the current academic semester. It will progressively include theoretical notes, design criteria, Python-based educational tools, numerical examples, and class materials related to the structural dynimics and seismic analysis of structures.
+This repository has been created to support the teaching process of the **Computational Methods** course during the current academic semester. It will progressively include Python-based educational tools, numerical examples, notebooks, and class materials focused on the post-processing and complementary analysis of results obtained from commercial structural software such as **ETABS** and **SAP2000**.
 
 This repository is **currently under construction** and will continue to be updated throughout the semester as new topics are covered in class.
 
@@ -17,32 +17,36 @@ This repository is **currently under construction** and will continue to be upda
 
 This repository is expected to progressively cover topics such as:
 
-- Fundamental concepts of earthquake engineering
-- Seismic hazard and design philosophy
-- Structural regularity and irregularity
-- Lateral force-resisting systems
-- Equivalent lateral force procedures
-- Modal analysis concepts
-- Design spectra and seismic parameters
-- Drift control and serviceability checks
-
+- Basic Python tools for engineering applications
+- Data extraction and post-processing workflows
+- Processing results exported from ETABS and SAP2000
+- Tabular data handling with Pandas
+- Numerical verification of structural results
+- Basic matrix operations for engineering problems
+- Introductory finite element processing
+- Visualization of engineering data and structural responses
 
 ## Current Contents
 
 At its current stage, the repository includes:
 
 - The initial base structure of the course repository
-- Introductory files for future class materials
-- A progressive framework for organizing notebooks, notes, and design examples
+- Introductory notebooks for computational processing
+- A progressive framework for organizing examples and package-based tools
 - Setup files for future computational implementations
+- Initial examples related to lateral force distribution and simple FEM processing
 
 ## Repository Structure
 
-    Repo_Seismic_Desing/
+    Repo_Computational_Methods/
     │── examples/
-    │── notes/
-    │── seismic_design/
-    │   └── __init__.py
+    │   ├── Lateral_Force_Distrib_NEC2024.ipynb
+    │   └── Simple_FEM_processing.ipynb
+    │── repo_computational_methods/
+    │   ├── __init__.py
+    │   └── core_simple_class_MC.py
+    │── repo_seismic_desing.egg-info/
+    │── LICENSE
     │── README.md
     │── requirements.txt
     │── setup.py
@@ -85,7 +89,7 @@ This helps avoid confusion with terminal commands, file paths, and virtual envir
 Once the Windows terminal is open, run:
 
 ```bash
-    git clone https://github.com/Normando1945/Repo_Seismic_Desing.git
+    git clone https://github.com/Normando1945/Repo_Computational_Methods.git
 ```
 
 This command will download the repository to the current folder.
@@ -93,17 +97,21 @@ This command will download the repository to the current folder.
 ### Step 3. Move into the repository folder
 
 After cloning the repository, enter the project folder with:
+
 ```bash
-    cd Repo_Seismic_Desing
+    cd Repo_Computational_Methods
 ```
+
 From this point on, all commands should be executed inside this folder.
 
 ### Step 4. Open the repository in Visual Studio Code
 
 Now that the repository already exists on the computer, open it in **Visual Studio Code** by running:
+
 ```bash
     code .
 ```
+
 If this command does not work, students can simply open **Visual Studio Code** manually and then select the cloned repository folder.
 
 ### Step 5. Open the integrated terminal in VS Code
@@ -137,45 +145,57 @@ From this point on, it is recommended that all commands be executed from this te
 It is strongly recommended to create a virtual environment so that all students work with the same isolated Python setup.
 
 Run:
+
 ```bash
     python -m venv venv
 ```
+
 This command will create a folder called `venv` inside the repository.
 
 ### Step 8. Activate the virtual environment in Windows
 
 If students are using **Command Prompt**, run:
+
 ```bash
     venv\Scripts\activate
 ```
+
 After activation, `(venv)` should appear at the beginning of the terminal line. This indicates that the virtual environment is active.
 
 ### Step 9. Install the required dependencies
 
 Once the virtual environment has been activated, install the required Python libraries with:
+
 ```bash
     pip install -r requirements.txt
 ```
+
 This step installs all the packages needed by the repository.
 
 ### Step 10. Install the repository in editable mode
 
 To allow Python to recognize the package correctly while developing and testing the code, run:
+
 ```bash
     pip install -e .
 ```
+
 This is useful because the package can be modified during the semester without reinstalling it every time.
 
 ### Step 11. Install Jupyter support inside the environment
 
 If students are going to work with notebooks in VS Code, it is recommended to also install `ipykernel`:
+
 ```bash
     pip install ipykernel
 ```
+
 Then register the environment as a Jupyter kernel:
+
 ```bash
-    python -m ipykernel install --user --name=venv --display-name "Python (Seismic Design)"
+    python -m ipykernel install --user --name=venv --display-name "Python (Computational Methods)"
 ```
+
 This will allow students to select the correct Python environment when opening notebooks.
 
 ### Step 12. Select the correct interpreter in VS Code
@@ -188,30 +208,35 @@ Inside **Visual Studio Code**, follow these steps:
 
 If a notebook is opened, also make sure that the selected kernel is:
 
-`Python (Seismic Design)`
+`Python (Computational Methods)`
 
 ### Step 13. Verify that the installation works correctly
 
 A simple way to verify the installation is to open Python and try importing the main package.
 
 Run:
+
 ```bash
     python
 ```
+
 Then type:
+
 ```bash
-    import seismic_design
+    import repo_computational_methods
     print("Package imported successfully")
 ```
+
 If no error appears, the installation was completed correctly.
 
 ## First Stage of the Repository
 
 Since the repository is still being developed, the first stage is focused on building a solid educational base for the course. This may include:
 
-- Introductory notes
-- Basic seismic design concepts
+- Introductory notebooks
+- Basic data processing workflows
 - Initial numerical examples
+- Post-processing tools for ETABS and SAP2000 outputs
 - Class-based Python tools for future applications
 - Progressive organization of notebooks and supporting files
 
@@ -228,7 +253,8 @@ For each class session, students are encouraged to follow the workflow below:
 5. Open the corresponding notebook or Python file
 6. Run the examples step by step
 7. Modify the examples progressively as discussed in class
-8. Save the updated work in an organized manner
+8. Use the repository to complement and process results exported from commercial software
+9. Save the updated work in an organized manner
 
 This workflow helps maintain consistency during the semester and reduces the most common installation and execution errors.
 
@@ -241,19 +267,25 @@ Since the repository will be updated progressively during the semester, students
 Open **Command Prompt** or the **integrated terminal in VS Code**.
 
 ### Step 2. Move into the repository folder
+
 ```bash
-    cd Repo_Seismic_Desing
+    cd Repo_Computational_Methods
 ```
+
 ### Step 3. Activate the virtual environment
 
 If students are using **Command Prompt**, run:
+
 ```bash
     venv\Scripts\activate
 ```
+
 ### Step 4. Pull the latest changes
+
 ```bash
     git pull
 ```
+
 This command downloads and merges the most recent changes from the remote repository into the local copy.
 
 ### Recommendation
@@ -263,20 +295,36 @@ Students are encouraged to run `git pull` before starting each class session in 
 ## Summary of the Main Installation and Update Commands
 
 ### First-time installation
+
 ```bash
-    git clone https://github.com/Normando1945/Repo_Seismic_Desing.git
-    cd Repo_Seismic_Desing
+    git clone https://github.com/Normando1945/Repo_Computational_Methods.git
+    cd Repo_Computational_Methods
     python -m venv venv
     venv\Scripts\activate
     pip install -r requirements.txt
     pip install -e .
 ```
+
 ### Regular update before class
+
 ```bash
-    cd Repo_Seismic_Desing
+    cd Repo_Computational_Methods
     venv\Scripts\activate
     git pull
 ```
+
+## Current Example Notebooks
+
+At the current stage, the repository already includes the following notebooks inside the `examples` folder:
+
+### 1. `Lateral_Force_Distrib_NEC2024.ipynb`
+
+This notebook introduces a simple computational workflow for the distribution of lateral seismic forces according to **NEC 2024** criteria. It is intended as an educational complement for checking and organizing structural results.
+
+### 2. `Simple_FEM_processing.ipynb`
+
+This notebook presents an introductory example related to simple **finite element processing**, serving as a first computational step for students working with structural data and basic numerical procedures.
+
 ## Additional Notes
 
 - If Git is not recognized in the terminal, it must be installed and added correctly to the system path.
@@ -286,6 +334,7 @@ Students are encouraged to run `git pull` before starting each class session in 
 - Students should avoid installing packages globally unless it is absolutely necessary.
 - Since the repository is installed in editable mode, updates to the package files will be reflected directly without reinstalling the package in most cases.
 - Because the repository is still under development, some folders or files may appear progressively during the semester.
+- Some internal file names may still reflect the initial development stage of the repository and may be refined later.
 
 ## Important Note for Students
 
@@ -301,20 +350,21 @@ If you use this repository in academic work, class projects, reports, or educati
 
 ### BibTeX
 
-    @misc{celi2026seismicdesign,
+    @misc{celi2026computationalmethods,
       author       = {Carlos Andrés Celi Sánchez},
-      title        = {Seismic-Resistant Design: Educational Repository for Seismic Design and Structural Engineering},
+      title        = {Computational Methods: Educational Repository for Computational Methods and Structural Engineering Applications},
       year         = {2026},
       publisher    = {GitHub},
       journal      = {GitHub repository},
-      howpublished = {\url{https://github.com/Normando1945/Repo_Seismic_Desing}}
+      howpublished = {\url{https://github.com/Normando1945/Repo_Computational_Methods}}
     }
 
 ### APA (7th Edition)
 
-Celi Sánchez, C. A. (2026). *Seismic-Resistant Design: Educational Repository for Seismic Design and Structural Engineering* [Structural Engineering]. GitHub. https://github.com/Normando1945/Repo_Seismic_Desing
+Celi Sánchez, C. A. (2026). *Computational Methods: Educational Repository for Computational Methods and Structural Engineering Applications* [Structural Engineering]. GitHub. https://github.com/Normando1945/Repo_Computational_Methods
 
 ## License
+
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License">
 </p>
@@ -323,7 +373,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ## Contributing
 
-This repository is maintained by the author as the official course repository for **Seismic-Resistant Design**.
+This repository is maintained by the author as the official course repository for **Computational Methods**.
 
 Students are encouraged to use the repository, report bugs, and suggest improvements whenever necessary. Nevertheless, the official development and organization of the repository remain under the supervision of the author.
 
@@ -331,4 +381,4 @@ Suggestions for improvement may be shared through issues or pull requests, which
 
 ## General Recommendation
 
-Students are encouraged to keep this repository updated throughout the semester and use it as the main reference point for class notes, numerical examples, design criteria, and the progressive development of seismic-resistant design tools and concepts.
+Students are encouraged to keep this repository updated throughout the semester and use it as the main reference point for class notes, numerical examples, post-processing routines, and the progressive development of computational tools for structural engineering applications.
