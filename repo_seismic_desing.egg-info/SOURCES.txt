@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+repo_computational_methods/__init__.py
+repo_computational_methods/core_simple_class_MC.py
+repo_seismic_desing.egg-info/PKG-INFO
+repo_seismic_desing.egg-info/SOURCES.txt
+repo_seismic_desing.egg-info/dependency_links.txt
+repo_seismic_desing.egg-info/requires.txt
+repo_seismic_desing.egg-info/top_level.txt

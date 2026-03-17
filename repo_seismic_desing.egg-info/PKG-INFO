@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: repo_seismic_desing
+Version: 0.1.0
+Summary: Seismic Desing
+Author: Carlos Celi
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: numpy>=2.0
+Requires-Dist: pandas>=2.0
+Requires-Dist: matplotlib>=3.8
+Requires-Dist: scipy>=1.11
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
