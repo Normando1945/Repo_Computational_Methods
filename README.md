@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFrc3MxYmhtZGE2ZmFpem5uMHprbnVqcmRpbXg3cG9kYnpndXI2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S7u66urzxc2J2/giphy.gif" width="100%" alt="Computational Methods Banner">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFrc3MxYmhtZGE2ZmFpem5uMHprbnVqcmRpbXg3cG9kYnpndXI2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S7u66urzxc2J2/giphy.gif" width="50%" alt="Computational Methods Banner">
 </p>
 
 # Computational Methods
