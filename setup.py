@@ -13,10 +13,10 @@ def read_requirements():
     return []
 
 setup(
-    name="repo_seismic_desing",
+    name="repo_computational_methods",
     version="0.1.0",
     author="Carlos Celi",
-    description="Seismic Desing",
+    description="Computational Methods",
     packages=find_packages(),
     install_requires=read_requirements(),
     python_requires=">=3.10",
