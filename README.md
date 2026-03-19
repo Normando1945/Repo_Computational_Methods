@@ -13,6 +13,13 @@ This repository has been created to support the teaching process of the **Comput
 
 This repository is **currently under construction** and will continue to be updated throughout the semester as new topics are covered in class.
 
+<p align="center">
+  <a href="https://github.com/Normando1945/Repo_Computational_Methods/actions/workflows/python-check.yml">
+    <img src="https://github.com/Normando1945/Repo_Computational_Methods/actions/workflows/python-check.yml/badge.svg" alt="Python Check">
+  </a>
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License">
+</p>
+
 ## Course Roadmap
 
 This repository is expected to progressively cover topics such as:
