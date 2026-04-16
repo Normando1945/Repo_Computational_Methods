@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+repo_computational_methods/__init__.py
+repo_computational_methods/core_simple_class_MC.py
+repo_computational_methods.egg-info/PKG-INFO
+repo_computational_methods.egg-info/SOURCES.txt
+repo_computational_methods.egg-info/dependency_links.txt
+repo_computational_methods.egg-info/top_level.txt

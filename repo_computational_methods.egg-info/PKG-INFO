@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: repo_computational_methods
+Version: 0.1.0
+Summary: Computational Methods
+Author: Carlos Celi
+Requires-Python: >=3.10
+License-File: LICENSE
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
