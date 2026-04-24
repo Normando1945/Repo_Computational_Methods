@@ -185,3 +185,30 @@ class Plot_Distribution_Stress_Force_Moments():
 
         plt.tight_layout()                                                                                  # adjust subplots to fit into figure area
         plt.show()                                                                                          # display the figure 
+        
+
+#########################################################################################################################################
+#########################################################################################################################################
+############################################## Read Excel Files and calculate Avarage Stress ########################################################
+#########################################################################################################################################
+#########################################################################################################################################
+
+class ReadExcelFies_compute_avarage_stress():
+    def __init__(self, excel_files):
+        self.excel_files = excel_files
+        pass
+    
+    def FileSelect(self):
+        excel_files = self.excel_files
+        
+        stress_file = excel_files[0]
+        stress_files_df = pd.read_excel(stress_file)
+
+        joint_name = excel_files[1]
+        joint_name_df = pd.read_excel(joint_name)
+        
+        stress_files_df1 = stress_files_df.copy()
+        stress_files_df1.columns = stress_files_df1.iloc[0]          
+        stress_files_df1 = stress_files_df1.iloc[2:].reset_index(drop=True)
+        
+        return stress_files_df1, joint_name_df

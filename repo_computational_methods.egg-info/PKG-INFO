@@ -5,11 +5,7 @@ Summary: Computational Methods
 Author: Carlos Celi
 Requires-Python: >=3.10
 License-File: LICENSE
-Requires-Dist: pandas>=2.0
-Requires-Dist: openpyxl>=3.1.0
-Requires-Dist: matplotlib>=3.8
 Dynamic: author
 Dynamic: license-file
-Dynamic: requires-dist
 Dynamic: requires-python
 Dynamic: summary
