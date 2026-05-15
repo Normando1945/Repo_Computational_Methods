@@ -189,7 +189,7 @@ class Plot_Distribution_Stress_Force_Moments():
 
 #########################################################################################################################################
 #########################################################################################################################################
-############################################## Read Excel Files and calculate Avarage Stress ########################################################
+############################################## Read Excel Files and calculate Avarage Stress ############################################
 #########################################################################################################################################
 #########################################################################################################################################
 
@@ -212,3 +212,104 @@ class ReadExcelFies_compute_avarage_stress():
         stress_files_df1 = stress_files_df1.iloc[2:].reset_index(drop=True)
         
         return stress_files_df1, joint_name_df
+
+#########################################################################################################################################
+#########################################################################################################################################
+####################################################### UHS (NEC-2024) ##################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+
+class SPEC_NEC_2024():
+    def __init__(self, z = 0.4, n = 2.4, fa = 1.2, fd = 1.0, fs = 1.0, dT = 0.001, Tf = 5.0, r = 1.0,
+                 city = 'Ciudad', soild = 'soild', pga = '0.4', zone = 'II', Tu = 0.5):
+        self.z = z
+        self.n = n
+        self.fa = fa
+        self.fd = fd
+        self.fs = fs
+        self.dT = dT
+        self.Tf = Tf
+        self.r = r
+        self.city = city
+        self.soild = soild
+        self.pga = pga
+        self.zone = zone
+        self.Tu = Tu
+        
+    def spec(self):
+        z = self.z
+        n = self.n
+        fa = self.fa
+        fd = self.fd
+        fs = self.fs
+        dT = self.dT
+        Tf = self.Tf 
+        r = self.r
+        Tu = self.Tu       
+        
+        To = 0.1 * fs * fd / fa
+        Tc = 0.45 * fs * fd / fa
+        Tl = 2.4 * fd
+        
+        Sae = []
+        Tie = []
+        
+        if Tu <= To:
+            Saeu = z*fa*(1 + 1.4*(Tu/To))
+        else:
+            if Tu <= Tc:
+                Saeu = n*z*fa
+            else:
+                if Tu <= Tl:
+                    Saeu = n*z*fa*(Tc/Tu)**(r)
+                else:
+                    Saeu = n*z*fa*(Tc/Tu)**(r)*(Tl/Tu)**(2)
+
+        for T in np.arange(0, Tf, dT):
+            if T <= To:
+                Sae.append(z*fa*(1 + 1.4*(T/To)))
+                Tie.append(T)
+            else:
+                if T <= Tc:
+                    Sae.append(n*z*fa)
+                    Tie.append(T)
+                else:
+                    if T <= Tl:
+                        Sae.append(n*z*fa*(Tc/T)**(r))
+                        Tie.append(T)
+                    else:
+                        Sae.append(n*z*fa*(Tc/T)**(r)*(Tl/T)**(2))
+                        Tie.append(T)
+        print("="*120)
+        print(f'To = {To} [s], Tc = {Tc} [s], Tl = {Tl} [s], fa = {fa}, fd = {fd}, fs = {fs}')
+        print("="*120)
+        
+        return Sae, Tie, To, Tc, Tl, fa, fd, fs, Saeu
+        
+        
+        
+    def plotSPECNEC(self, Tie, Sae, Tu, Saeu):
+        city = self.city
+        soild = self.soild
+        pga = self.pga
+        zone = self.zone
+        #----------Plot------------#
+        fig, ax = plt.subplots(1,1, figsize = (20,6))
+        fig.suptitle(f"UHS NEC 2024, City = {city}, Soild = {soild}, PGA = {pga:.2f}, Zone = {zone}", fontsize=18, color = (0,0,1), y=0.98)
+        
+        ax.plot(Tie, Sae, color = (0,0,0), alpha = 1.0 ,lw = 1.0, ls = '-', marker = 'o', 
+                markersize = 0, label = 'UHS NEC 2024')
+        ax.plot(np.array([Tu, Tu]), np.array([0,Saeu]), color = (1,0,0), alpha = 1.0 ,lw = 1.5, ls = '--', marker = 'o', 
+                markersize = 5, markerfacecolor = (1,1,1), markeredgecolor = (1,0,0))
+        ax.text(Tu*1.05, Saeu,  f'T_user = {Tu:.2f} [s], Sae_user = {Saeu:.2f} [g]', ha='left', va='bottom', color = (1,0,0), fontweight = 'bold')
+        
+        ax.set_title('UHS NEC 2024', fontweight = 'bold')
+        ax.set_ylabel('Acceleration [g]')
+        ax.set_xlabel('Period [s]')
+        ax.grid(visible= True, axis= 'x')
+        ax.set_xlim(Tie[0], Tie[-1])
+        ax.set_ylim(0, max(Sae)*1.1)
+        ax.legend(loc='best')
+        
+        plt.tight_layout()
+        plt.show() 
